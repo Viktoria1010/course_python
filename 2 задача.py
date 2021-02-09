@@ -1,9 +1,7 @@
 stroka = str(input())
 stroka = stroka.replace(' ', '')
 stroka = stroka.lower()
-a = []
-for i in stroka:
-    a.append(i)
+a = list(stroka)
 b = set(a)
 if len(a) == len(b):
     print('Нет дублей')
