@@ -1,15 +1,15 @@
 import json
 
-file = open('3_1 задача.json', 'w')
-with open('C:\\Users\\Виктория\\Downloads\\wikidata_1000.json', 'r', encoding='utf-8') as f:
-    characters_list = []
-    for line in f.readlines():
-        characters_list.append(json.loads(line))
-    dictionary = dict()
-    for a in range(len(characters_list)):
-        try:
-            dictionary[characters_list[a]["label"]["value"]] = characters_list[a]["description"]["value"]
-        except KeyError:
-            dictionary[characters_list[a]["label"]["value"]] = "None"
-
-file.write(json.dumps(dictionary, ensure_ascii=False, indent=4))
+with open('3_1 задача.json', 'w') as to_write:
+    with open('C:\\Users\\Виктория\\Downloads\\wikidata_1000.json', 'r', encoding='utf-8') as f:
+        dict_new = dict()
+        for line in f.readlines():
+            dictionary = dict()
+            dictionary[line] = json.loads(line)
+            try:
+                name = dictionary[line]['label']['value']
+                descr = dictionary[line]['description']['value']
+                dict_new[name] = descr
+            except KeyError:
+                dictionary[line]["label"]["value"] = None
+        to_write.write(json.dumps(dict_new, ensure_ascii=False, indent=4))

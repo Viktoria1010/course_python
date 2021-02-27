@@ -3,8 +3,8 @@ import json
 with open('C:\\Users\\Виктория\\Downloads\\RomeoAndJuliet.json', 'r', encoding='utf-8') as f:
     romeo = json.load(f)
     characters_list = []
-    max_number = 0
     max_character_number = 0
+    max_character = ''
     for act in romeo['acts']:
         for scene in act['scenes']:
             for action in scene['action']:
@@ -15,8 +15,3 @@ with open('C:\\Users\\Виктория\\Downloads\\RomeoAndJuliet.json', 'r', en
             max_character = character
 
 print(max_character)
-
-
-
-
-
