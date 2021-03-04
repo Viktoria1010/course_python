@@ -10,4 +10,4 @@ with open('3_1 задача.json', 'w') as to_write:
             except KeyError:
                 dict_new[data['label']["value"]] = None
 
-json.dump(dict_new, to_write, ensure_ascii=False, indent=4)
+    json.dump(dict_new, to_write, ensure_ascii=False, indent=4)
