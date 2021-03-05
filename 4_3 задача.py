@@ -5,7 +5,7 @@ root = tree.getroot()
 conj = 0
 verb = 0
 for token in root.iter('token'):
-    if (token.get('text') == 'Может') or (token.get('text') == 'может'):
+    if token.get('text').lower() == 'может':
         data = []
         for g in token.iter('g'):
             data.append(g.get('v'))
