@@ -1,37 +1,38 @@
 import unittest
+import random
+import functions_7_1 as fl
 
 
-class FirstTask(unittest.TestCase):
+class MyTestCase(unittest.TestCase):
     def test_truth(self):
-        a = 'dog'
-        b = a.lower()
-        self.assertTrue(a.islower())
-        self.assertFalse(b.isupper())
+        s = 'SNDGFNRTJ'
+        b = fl.truth(s)
+        self.assertTrue(b.islower())
+        self.assertFalse(s.islower())
 
-    def test_in(self):
+    def test_in_rainbow(self):
         rainbow = ['red', 'orange', 'yellow', 'green', 'blue', 'magenta', 'violet']
-        self.assertIn('magenta', rainbow)
-        self.assertNotIn('pink', rainbow)
+        colors = rainbow
+        color_1 = random.choice(colors)
+        color_2 = fl.test_in()
+        self.assertIn(color_1, rainbow)
+        self.assertNotIn(color_2, rainbow)
 
     def test_greater(self):
-        white_russian = {'vodka', 'coffee liquor', 'cream', 'ice'}
-        black_russian = {'vodka', 'coffee liquor', 'ice'}
-        self.assertGreater(len(white_russian), len(black_russian))
+        a = int(input())
+        b = int(input())
+        c = fl.greater(a, b)
+        self.assertGreater(c, a)
 
     def test_less(self):
-        words = ['cat', 'home', 'cat', 'mom', 'dad', 'I', 'you', 'road', 'mime', 'pig']
-        for word in range(len(words)):
-            with self.subTest(word=word):
-                self.assertLess(len(words[word]), 5)
+        length = 4
+        word = fl.less()
+        self.assertLess(len(word), length)
 
     def test_equal(self):
-        monty_python = {'Terry Jones', 'John Cleese', 'Michel Palin', 'Graham Chapman'}
-        comedians = {'Terry Jones', 'John Cleese', 'Michel Palin', 'Graham Chapman'}
-        self.assertCountEqual(monty_python, comedians)
-
-
-
-
+        comedians = {'Michel Palin', 'Terry Jones', 'Graham Chapman', 'John Cleese'}
+        pythons = fl.equal()
+        self.assertEqual(comedians, pythons)
 
 
 if __name__ == '__main__':

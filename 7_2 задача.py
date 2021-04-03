@@ -5,8 +5,9 @@ import numpy as np
 class SecondTask(unittest.TestCase):
     def test_random(self):
         numbers = np.random.random(30)
+        print(numbers)
         for number in numbers:
-            with self.subTest(number=number):
+            with self.subTest(i=number):
                 self.assertGreaterEqual(number, 0.5)
 
 
