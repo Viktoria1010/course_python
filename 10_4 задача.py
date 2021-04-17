@@ -1,9 +1,8 @@
-bought_tickets = []
-
 
 class Tickets:
     def __init__(self):
         self.amount = 500
+        self.bought_tickets = []
 
     def print_amount(self):
         print(self.amount)
@@ -19,8 +18,8 @@ class Customer:
 class Seller:
 
     def sell(self, customer, tickets):
-        if [customer.seat, customer.row] not in bought_tickets:
-            bought_tickets.append([customer.seat, customer.row])
+        if [customer.seat, customer.row] not in tickets.bought_tickets:
+            tickets.bought_tickets.append([customer.seat, customer.row])
             tickets.amount -= 1
             print('Thanks for choosing us, your place is ' + str([customer.seat, customer.row]))
         else:
@@ -36,5 +35,5 @@ seller.sell(customer_2, ticket)
 customer_2 = Customer(18, 5)
 seller.sell(customer_2, ticket)
 ticket.print_amount()
-print(bought_tickets)
+print(ticket.bought_tickets)
 
