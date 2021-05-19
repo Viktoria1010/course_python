@@ -13,3 +13,12 @@ with open('3_1 задача.json', 'w') as to_write:
             except KeyError:
                 dictionary[line]["label"]["value"] = None
         to_write.write(json.dumps(dict_new, ensure_ascii=False, indent=4))
+=======
+        for line in f:
+            data = json.loads(line)
+            try:
+                dict_new[data["label"]["value"]] = data["description"]["value"]
+            except KeyError:
+                dict_new[data['label']["value"]] = None
+
+    json.dump(dict_new, to_write, ensure_ascii=False, indent=4
