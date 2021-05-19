@@ -20,7 +20,7 @@ class Kitchen(Table):
         print(self.places)
 
 
-class Student(Table):
+class Desk(Table):
     def __init__(self, l, w, h, subject):
         super().__init__(l, w, h)
         self.subject = subject
@@ -40,7 +40,7 @@ t_room1.outplases()
 t_2 = Table(1, 3, 0.7)
 t_2.outing()
 
-t_3 = Student(2, 5, 8, 'Economics')
+t_3 = Desk(2, 5, 8, 'Economics')
 t_3.study('Math')
 t_3.study('English')
 t_3.study('Art')
