@@ -1,6 +1,6 @@
 import time
 
-with open('time.txt', 'w') as to_write:
+with open('time is 24_05_2021, 19_07.txt', 'w') as to_write:
     start_time = time.time()
     stroka = str(input())
     stroka = stroka.replace(" ", '')
