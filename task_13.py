@@ -50,30 +50,30 @@ class Corpus:
 
     def get_sent_words(self, sent):
         sentence = self.__sentences[sent]
-        print(Sentence._get_sent_words(sentence))
-        return Sentence._get_sent_words(sentence)
+        print(Sentence.get_sent_words(sentence))
+        return Sentence.get_sent_words(sentence)
 
     def get_word_gramms(self, sent, word):
         w = self.__sentences[sent]._words[word]
-        print(Wordform._get_word_gramms(w))
-        return Wordform._get_word_gramms(w)
+        print(Wordform.get_word_gramms(w))
+        return Wordform.get_word_gramms(w)
 
     def get_word(self, sent, word):
         w = self.__sentences[sent]._words[word]
-        print(Wordform._get_word(w))
-        return Wordform._get_word(w)
+        print(Wordform.get_word(w))
+        return Wordform.get_word(w)
 
     def get_grammema(self, sent, word, gramm):
         w = self.__sentences[sent]._words[word]
-        print(Wordform._get_gramm(w, gramm))
-        return Wordform._get_gramm(w, gramm)
+        print(Wordform.get_gramm(w, gramm))
+        return Wordform.get_gramm(w, gramm)
 
 class Sentence:
     def __init__(self, sent_text, list_of_words):
         self._sent_text = sent_text
         self._words = list_of_words
 
-    def _get_sent_words(self):
+    def get_sent_words(self):
         text = []
         for word in range(len(self._words)):
             word = self._words[word]._word
@@ -86,13 +86,13 @@ class Wordform:
         self._word = word
         self._grammems = grammems
 
-    def _get_word_gramms(self):
+    def get_word_gramms(self):
         return f'Слово: {self._word}, граммемы: {self._grammems}'
 
-    def _get_word(self):
+    def get_word(self):
         return f"Слово: {self._word}"
 
-    def _get_gramm(self, i):
+    def get_gramm(self, i):
         return f'Граммема: {self._grammems[i]}'
 
 
