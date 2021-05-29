@@ -50,50 +50,38 @@ class Corpus:
 
     def get_sent_words(self, sent):
         sentence = self.__sentences[sent]
-        print(Sentence.get_sent_words(sentence))
-        return Sentence.get_sent_words(sentence)
+        words = []
+        for word in range(len(sentence._words)):
+            words.append(sentence._words[word]._word)
+        print(f'Предложение: {sentence._sent_text}, слова: {words}')
+        return f'Предложение: {sentence._sent_text}, слова: {words}'
 
     def get_word_gramms(self, sent, word):
         w = self.__sentences[sent]._words[word]
-        print(Wordform.get_word_gramms(w))
-        return Wordform.get_word_gramms(w)
+        print(f'Слово: {w._word}, граммемы: {w._grammems}')
+        return f'Слово: {w._word}, граммемы: {w._grammems}'
 
     def get_word(self, sent, word):
         w = self.__sentences[sent]._words[word]
-        print(Wordform.get_word(w))
-        return Wordform.get_word(w)
+        print(f'Слово: {w._word}')
+        return f'Слово: {w._word}'
 
     def get_grammema(self, sent, word, gramm):
-        w = self.__sentences[sent]._words[word]
-        print(Wordform.get_gramm(w, gramm))
-        return Wordform.get_gramm(w, gramm)
+        g = self.__sentences[sent]._words[word]._grammems[gramm]
+        print(f'Граммема: {g}')
+        return f'Граммема: {g}'
+
 
 class Sentence:
     def __init__(self, sent_text, list_of_words):
         self._sent_text = sent_text
         self._words = list_of_words
 
-    def get_sent_words(self):
-        text = []
-        for word in range(len(self._words)):
-            word = self._words[word]._word
-            text.append(word)
-        return f'Предложение: {self._sent_text}, слова: {text}'
-
 
 class Wordform:
     def __init__(self, word, grammems):
         self._word = word
         self._grammems = grammems
-
-    def get_word_gramms(self):
-        return f'Слово: {self._word}, граммемы: {self._grammems}'
-
-    def get_word(self):
-        return f"Слово: {self._word}"
-
-    def get_gramm(self, i):
-        return f'Граммема: {self._grammems[i]}'
 
 
 corp = Corpus()
