@@ -27,7 +27,6 @@ class Corpus:
             sentence = Sentence(sent_text, words)
             self.__sentences.append(sentence)
 
-
     def get_whatever(self, sent, word, gramm):  # определенная граммема определенного слова определенного предложения
         if sent in range(len(self.__sentences)):
             if word in range(len(self.__sentences[sent]._words)):
@@ -67,6 +66,7 @@ class Corpus:
         w = self.__sentences[sent]._words[word]
         print(Wordform.get_gramm(w, gramm))
         return Wordform.get_gramm(w, gramm)
+
 
 class Sentence:
     def __init__(self, sent_text, list_of_words):
